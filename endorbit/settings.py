@@ -58,6 +58,13 @@ INSTALLED_APPS = [
     "drf_spectacular",
 ]
 
+REST_FRAMEWORK = {
+    # YOUR SETTINGS
+    'DEFAULT_PAGINATION_CLASS':'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10,
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
 SPECTACULAR_SETTINGS = {
     'TITLE': 'Endorbit API',
     'DESCRIPTION': 'API for Endorbit',

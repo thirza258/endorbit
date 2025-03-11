@@ -25,6 +25,6 @@ class ProductReturnResponseModel(BaseModel):
     brand: str = Field(..., description="Brand of the product")
     
 class ResponseModel(BaseModel):
-    response : str = Field(..., description="Response message")
-    products : List[ProductReturnResponseModel] = Field(..., description="List of products")
+    response : str 
+    products : List[ProductReturnResponseModel] 
     

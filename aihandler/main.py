@@ -30,21 +30,21 @@ class RAGIndex:
 
             # Import models only if table exists
             from .models import Product
-            from .serializers import RecipeSerializer
+            from .serializers import ProductSerializer
 
-            recipe = Product.objects.all()
-            if not recipe.exists():
-                print("No recipes found in the database.")
+            product = Product.objects.all()
+            if not product.exists():
+                print("No products found in the database.")
                 return
                 
             if Product is None:
                 return  #
-            recipe = Product.objects.all()
-            if not recipe.exists():
+            product = Product.objects.all()
+            if not product.exists():
                 return
-            recipe_serializer = RecipeSerializer(recipe, many=True).data
+            product_serializer = ProductSerializer(product, many=True).data
 
-            document_texts = [json.dumps(i) for i in recipe_serializer]
+            document_texts = [json.dumps(i) for i in product_serializer]
             self.documents = [Document(page_content=text) for text in document_texts]
 
             # Create FAISS index

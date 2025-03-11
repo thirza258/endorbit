@@ -11,7 +11,7 @@ class Command(BaseCommand):
         base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
         # Correct path to the CSV file
-        file_path = os.path.join(base_dir, "data", "recipes.csv")
+        file_path = os.path.join(base_dir, "data", "dataset.csv")
 
         if not os.path.exists(file_path):
             self.stdout.write(self.style.ERROR(f"File not found: {file_path}"))
@@ -24,9 +24,9 @@ class Command(BaseCommand):
                 product_url=row["product_url"],
                 product_name=row["product_name"],
                 retail_price=row["retail_price"],
-                image=row["image"],
+                image=None,
                 description=row["description"],
-                product_rating=row["product_rating"],
+                product_rating=None,
                 brand=row["brand"]
             )
             
