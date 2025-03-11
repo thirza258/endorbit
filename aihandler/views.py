@@ -19,7 +19,7 @@ class GetAllProduct(ListAPIView):
     
 class ChatCommerceService(APIView):
     def post(self, request):
-        # try:
+        try:
             input_user = request.data['input_user']
             llm = init_chat_model("gpt-4o-mini", model_provider="openai")
             retrieved_product = rag_index.retrieve_documents(input_user, k=5)
@@ -66,9 +66,9 @@ class ChatCommerceService(APIView):
                 "message": "Success",
                 "data": raw_response
             }, status=status.HTTP_200_OK)
-        # except Exception as e:
-        #     return Response({
-        #         "status": 500,
-        #         "message": "Internal server error",
-        #         "data": str(e)
-        #     }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        except Exception as e:
+            return Response({
+                "status": 500,
+                "message": "Internal server error",
+                "data": str(e)
+            }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
