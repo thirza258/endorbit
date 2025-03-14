@@ -2,7 +2,31 @@
 
 ## Overview
 
-Endorbit is an e-commerce bot that uses a Flipkart product dataset to recommend products based on your prompt.
+# Build Your Bot
+
+## Overview
+
+Endorbit is an e-commerce bot that uses a Flipkart product dataset to recommend products based on your prompt. The bot is built with a tech stack that includes Faiss RAG and OpenAI embeddings for large-scale search and retrieval, and it uses Django REST framework to create its own API. The frontend is developed using React, TypeScript, and Tailwind CSS. The AI capabilities are powered by OpenAI, and the product data is sourced from a Kaggle dataset, which can be found [here](https://www.kaggle.com/datasets/PromptCloudHQ/flipkart-products).
+
+You can also access the chatbot website from [website](https://endorbit.vercel.app/).
+## Installation
+
+1. Clone the repository:
+    ```bash
+    git clone <repository_url>
+    cd Build_your_bot
+    ```
+
+2. Install the required packages:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+3. Create a `.env` file from the example:
+    ```bash
+    cp .env.example .env
+    ```
+
 
 ## Installation
 
