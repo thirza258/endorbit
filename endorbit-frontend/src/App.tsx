@@ -25,7 +25,7 @@ function App() {
   }, [input]);
 
   const sendMessage = async () => {
-    const baseURL = "http://localhost:8000/api/v1/chat/";
+    const baseURL = "https://endorbit-n6swi.ondigitalocean.app/api/v1/chat/";
 
     if (input.trim() !== "") {
       setMessages((prevMessages) => [...prevMessages, { text: input, user: "me" }]);
