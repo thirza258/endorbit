@@ -3,7 +3,10 @@ import numpy as np
 import json
 from langchain.docstore.document import Document
 from langchain_openai import OpenAIEmbeddings
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 
 class RAGIndex:
     def __init__(self):
@@ -19,10 +22,16 @@ class RAGIndex:
 
             # Check if table exists
             with connection.cursor() as cursor:
-                cursor.execute(
-                    "SELECT name FROM sqlite_master WHERE type='table' AND name='aihandler_product';"
-                )
-                table_exists = cursor.fetchone()
+                if os.getenv("DEVELOPMENT_MODE") == "False":
+                    cursor.execute(
+                        "SELECT tablename FROM pg_catalog.pg_tables WHERE tablename = 'aihandler_product';"
+                    )
+                    table_exists = cursor.fetchone()
+                else:
+                    cursor.execute(
+                        "SELECT name FROM sqlite_master WHERE type='table' AND name='aihandler_product';"
+                    )
+                    table_exists = cursor.fetchone()
 
             if not table_exists:
                 print("Table 'aihandler_product' does not exist. Skipping data load.")
