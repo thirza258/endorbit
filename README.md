@@ -67,7 +67,7 @@ For more information, go to `/docs`.
 **Success Response Example:**
 
 ```json
-HTTP/1.1 200 OK
+- HTTP/1.1 200 OK
 {
     "status": 200,
     "message": "Success",
