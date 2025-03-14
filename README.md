@@ -1,8 +1,4 @@
-# Build Your Bot
-
-## Overview
-
-# Build Your Bot
+# Endorbit
 
 ## Overview
 
@@ -13,7 +9,7 @@ You can also access the chatbot website from [website](https://endorbit.vercel.a
 
 1. Clone the repository:
     ```bash
-    git clone <repository_url>
+    git clone https://github.com/thirza258/endorbit.git
     cd Build_your_bot
     ```
 
