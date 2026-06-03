@@ -1,0 +1,16 @@
+node_modules
+endorbit-frontend/node_modules
+endorbit-frontend/dist
+.git
+.gitignore
+*.pyc
+__pycache__
+db.sqlite3
+.env
+docker-compose.yml
+*.md
+venv
+.venv
+*.egg-info
+Dockerfile
+.dockerignore

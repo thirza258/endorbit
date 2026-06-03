@@ -14,10 +14,19 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+import os
+from django.conf import settings
 from django.contrib import admin
-from django.urls import path, include
+from django.http import HttpResponse
+from django.urls import path, include, re_path
 from aihandler.views import GetAllProduct
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
+
+
+def serve_spa(request, path=None):
+    index_path = os.path.join(settings.BASE_DIR, "frontend-dist", "index.html")
+    with open(index_path) as f:
+        return HttpResponse(f.read(), content_type="text/html")
 
 
 urlpatterns = [
@@ -31,5 +40,7 @@ urlpatterns = [
             template_name="swagger-ui.html", url_name="schema"
         ),
         name="swagger-ui",
-    ),    
+    ),
+    # Catch-all: serve React SPA for client-side routing
+    re_path(r"^(?!api/|admin/|schema/|docs/).*$", serve_spa),
 ]
